@@ -11,9 +11,9 @@ export function Squads() {
   const [flipped, setFlipped] = useState<string | null>(null);
 
   return (
-    <section id="squads" className="relative py-24 sm:py-32">
+    <section id="squads" className="relative py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <SectionHeading
+        <SectionHeading index="04"
           kicker="Recruitment Files"
           title="Choose Your Squad"
           lead="Four domains, four temperaments. Pick the one you would defend a city with."

@@ -5,19 +5,18 @@ import texture from "@/assets/tech-texture.jpg";
 
 export function About() {
   return (
-    <section id="briefing" className="relative overflow-hidden py-24 sm:py-32">
+    <section id="briefing" className="relative overflow-hidden py-20 sm:py-28">
       <img
         src={texture}
         alt=""
         loading="lazy"
         width={1536}
         height={1024}
-        className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-15"
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.08] [mask-image:linear-gradient(to_bottom,transparent,black_30%,black_70%,transparent)]"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-background/70 to-background" />
 
       <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
-        <SectionHeading kicker="Classified · Level 07" title="Mission Briefing" />
+        <SectionHeading index="01" kicker="Classified · Level 07" title="Mission Briefing" />
 
         <Reveal delay={0.1} className="mt-14">
           <div className="hud-panel hud-corners p-6 sm:p-10">

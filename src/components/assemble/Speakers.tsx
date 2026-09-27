@@ -5,9 +5,9 @@ import { Reveal, SectionHeading } from "./Reveal";
 
 export function Speakers() {
   return (
-    <section id="mentors" className="relative py-24 sm:py-32">
+    <section id="mentors" className="relative py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <SectionHeading
+        <SectionHeading index="05"
           kicker="Command Council"
           title="Speakers & Mentors"
           lead="Operatives from industry frontlines running the floor for 48 hours."

@@ -12,6 +12,7 @@ import { Speakers } from "@/components/assemble/Speakers";
 import { Registration } from "@/components/assemble/Registration";
 import { Faq } from "@/components/assemble/Faq";
 import { Footer } from "@/components/assemble/Footer";
+import { Atmosphere, Seam, StickyCta } from "@/components/assemble/Atmosphere";
 
 const TITLE = "ASSEMBLE 2026 — GFG Student Chapter, Bennett University";
 const DESCRIPTION =
@@ -33,22 +34,28 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <div className="relative min-h-screen bg-background md:cursor-none">
+    <div className="relative min-h-screen md:cursor-none">
       <Preloader />
       <CustomCursor />
+      <Atmosphere />
       <Navbar />
       <main>
         <Hero />
         <About />
+        <Seam label="Transmission 02 · Operations" />
         <Highlights />
+        <Seam label="Transmission 03 · Timeline" />
         <Timeline />
+        <Seam label="Transmission 04 · Squads" />
         <Squads />
         <Stats />
         <Speakers />
         <Registration />
+        <Seam label="Transmission 07 · Intel" />
         <Faq />
       </main>
       <Footer />
+      <StickyCta />
     </div>
   );
 }

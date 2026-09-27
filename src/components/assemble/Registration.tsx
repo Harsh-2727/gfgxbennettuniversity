@@ -3,10 +3,11 @@ import { CalendarDays, MapPin, Zap } from "lucide-react";
 import { EVENT } from "@/data/event";
 import { Countdown } from "./Countdown";
 import { Reveal } from "./Reveal";
+import { MagneticButton } from "./MagneticButton";
 
 export function Registration() {
   return (
-    <section id="register" className="grain relative overflow-hidden py-24 sm:py-32">
+    <section id="register" className="relative overflow-hidden py-28 sm:py-40">
       <div
         className="absolute inset-0"
         style={{
@@ -35,18 +36,17 @@ export function Registration() {
           <Countdown compact />
         </Reveal>
 
-        <Reveal delay={0.3}>
-          <motion.a
-            href={EVENT.registerUrl}
-            target="_blank"
-            rel="noreferrer"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.97 }}
-            className="hud-mono btn-sweep mt-10 inline-flex items-center gap-3 border border-accent/70 bg-primary px-10 py-5 text-[0.7rem] text-primary-foreground shadow-[var(--shadow-glow)]"
-          >
+        <Reveal delay={0.3} className="relative mt-12 inline-block w-full sm:w-auto">
+          <motion.span
+            aria-hidden
+            className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-40 w-[120%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/40 blur-3xl"
+            animate={{ opacity: [0.5, 0.9, 0.5] }}
+            transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <MagneticButton href={EVENT.registerUrl} external size="lg" className="w-full sm:w-auto">
             <Zap size={16} />
             Assemble Now — Register
-          </motion.a>
+          </MagneticButton>
         </Reveal>
 
         <Reveal delay={0.36}>
