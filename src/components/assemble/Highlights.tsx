@@ -30,10 +30,11 @@ export function Highlights() {
               <Reveal key={h.code} delay={i * 0.07}>
                 <motion.article
                   data-cursor-hover
-                  whileHover={{ y: -10, rotateX: 6, rotateY: -6 }}
-                  transition={{ type: "spring", stiffness: 260, damping: 18 }}
-                  style={{ transformPerspective: 900 }}
-                  className="group hud-corners relative h-full overflow-hidden border border-border/70 bg-surface/60 p-6"
+                  data-spotlight
+                  whileHover={{ y: -6 }}
+                  transition={{ type: "spring", stiffness: 260, damping: 22 }}
+                  style={{ ["--spot" as string]: h.stone }}
+                  className="group relative h-full overflow-hidden border border-border/60 bg-surface/40 p-7 backdrop-blur-sm transition-colors duration-500 hover:border-foreground/25"
                 >
                   <span
                     className="absolute -right-10 -top-10 h-28 w-28 rounded-full opacity-25 blur-2xl transition-opacity duration-500 group-hover:opacity-70"

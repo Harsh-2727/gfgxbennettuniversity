@@ -10,7 +10,7 @@ export function Faq() {
   return (
     <section id="faq" className="relative py-20 sm:py-28">
       <div className="mx-auto max-w-3xl px-5 sm:px-8">
-        <SectionHeading kicker="Intel Requests" title="Frequently Asked" />
+        <SectionHeading index="06" kicker="Intel Requests" title="Frequently Asked" />
 
         <div className="mt-12 space-y-3">
           {FAQS.map((f, i) => {
