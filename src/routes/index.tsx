@@ -1,24 +1,54 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Preloader } from "@/components/assemble/Preloader";
+import { CustomCursor } from "@/components/assemble/CustomCursor";
+import { Navbar } from "@/components/assemble/Navbar";
+import { Hero } from "@/components/assemble/Hero";
+import { About } from "@/components/assemble/About";
+import { Highlights } from "@/components/assemble/Highlights";
+import { Timeline } from "@/components/assemble/Timeline";
+import { Squads } from "@/components/assemble/Squads";
+import { Stats } from "@/components/assemble/Stats";
+import { Speakers } from "@/components/assemble/Speakers";
+import { Registration } from "@/components/assemble/Registration";
+import { Faq } from "@/components/assemble/Faq";
+import { Footer } from "@/components/assemble/Footer";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+const TITLE = "ASSEMBLE 2026 — GFG Student Chapter, Bennett University";
+const DESCRIPTION =
+  "A 24-hour hackathon, workshops and tech talks by the GeeksForGeeks Student Chapter at Bennett University. Every great power needs a team. Assemble 2026.";
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: TITLE },
+      { name: "description", content: DESCRIPTION },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESCRIPTION },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="relative min-h-screen bg-background md:cursor-none">
+      <Preloader />
+      <CustomCursor />
+      <Navbar />
+      <main>
+        <Hero />
+        <About />
+        <Highlights />
+        <Timeline />
+        <Squads />
+        <Stats />
+        <Speakers />
+        <Registration />
+        <Faq />
+      </main>
+      <Footer />
     </div>
   );
 }
