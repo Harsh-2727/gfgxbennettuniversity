@@ -6,7 +6,7 @@ import { Reveal } from "./Reveal";
 
 export function Registration() {
   return (
-    <section id="register" className="grain relative overflow-hidden py-24 sm:py-32">
+    <section id="register" className="relative overflow-hidden py-28 sm:py-40">
       <div
         className="absolute inset-0"
         style={{

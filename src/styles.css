@@ -280,3 +280,129 @@
     animation: sweep 2.8s ease-in-out infinite;
   }
 }
+
+/* ---------- Cinematic layer (v2) ---------- */
+:root {
+  --noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --shadow-cta: 0 0 0 1px color-mix(in oklab, var(--gold) 45%, transparent),
+    0 20px 60px -15px color-mix(in oklab, var(--primary) 80%, transparent),
+    0 0 90px -20px color-mix(in oklab, var(--primary) 70%, transparent);
+}
+
+body {
+  background:
+    radial-gradient(1200px 600px at 85% 30%, color-mix(in oklab, var(--primary) 7%, transparent), transparent 70%),
+    radial-gradient(1000px 700px at 10% 65%, color-mix(in oklab, var(--arc) 5%, transparent), transparent 70%),
+    var(--background);
+  background-attachment: fixed;
+}
+
+.page-grain {
+  background-image: var(--noise);
+  opacity: 0.07;
+  mix-blend-mode: overlay;
+  animation: grain-shift 1.2s steps(6) infinite;
+}
+.page-vignette {
+  background: radial-gradient(ellipse 120% 90% at 50% 45%, transparent 55%, color-mix(in oklab, var(--background) 75%, transparent) 100%);
+}
+@keyframes grain-shift {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-3%, 2%); }
+  40% { transform: translate(2%, -3%); }
+  60% { transform: translate(-2%, -1%); }
+  80% { transform: translate(3%, 2%); }
+  100% { transform: translate(0, 0); }
+}
+
+.hero-atmos {
+  background:
+    radial-gradient(ellipse 60% 45% at 50% 42%, color-mix(in oklab, var(--primary) 26%, transparent), transparent 70%),
+    radial-gradient(ellipse 40% 30% at 50% 44%, color-mix(in oklab, var(--gold) 10%, transparent), transparent 70%),
+    linear-gradient(to bottom, color-mix(in oklab, var(--background) 70%, transparent), color-mix(in oklab, var(--background) 35%, transparent) 40%, var(--background));
+}
+.hero-rays {
+  background: conic-gradient(from 180deg at 50% 42%, transparent 0deg, color-mix(in oklab, var(--primary) 9%, transparent) 12deg, transparent 24deg, transparent 150deg, color-mix(in oklab, var(--gold) 6%, transparent) 165deg, transparent 180deg, transparent 300deg, color-mix(in oklab, var(--arc) 6%, transparent) 318deg, transparent 336deg);
+  mask-image: radial-gradient(circle at 50% 42%, black 10%, transparent 65%);
+  mix-blend-mode: screen;
+  animation: rays 40s linear infinite;
+}
+@keyframes rays { to { transform: rotate(360deg) scale(1.4); } }
+
+.hero-title { filter: drop-shadow(0 0 40px color-mix(in oklab, var(--primary) 45%, transparent)); }
+
+.sigil-spin-slow { animation: spin-deg 90s linear infinite; }
+.sigil-spin-rev { animation: spin-deg 60s linear infinite reverse; }
+@keyframes spin-deg { to { transform: rotate(360deg); } }
+
+/* Buttons */
+.btn-primary {
+  isolation: isolate;
+  overflow: hidden;
+  background: linear-gradient(100deg, var(--primary), color-mix(in oklab, var(--primary) 70%, var(--gold)));
+  box-shadow: var(--shadow-cta);
+  clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
+  transition: box-shadow 0.4s ease, filter 0.4s ease;
+}
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(160px circle at var(--mx, 50%) var(--my, 50%), color-mix(in oklab, var(--gold) 55%, transparent), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 40%;
+  z-index: 0;
+  background: linear-gradient(90deg, transparent, color-mix(in oklab, var(--foreground) 30%, transparent), transparent);
+  animation: sweep 3.6s ease-in-out infinite;
+}
+.btn-primary:hover::before { opacity: 1; }
+.btn-primary:hover { filter: brightness(1.08); }
+
+.btn-ghost {
+  border: 1px solid color-mix(in oklab, var(--foreground) 22%, transparent);
+  background: color-mix(in oklab, var(--background) 40%, transparent);
+  backdrop-filter: blur(8px);
+  transition: border-color 0.35s ease, color 0.35s ease, background 0.35s ease;
+}
+.btn-ghost:hover {
+  border-color: var(--arc);
+  color: var(--arc);
+  background: color-mix(in oklab, var(--arc) 8%, transparent);
+}
+
+/* Cards: cursor-tracked light */
+[data-spotlight] { isolation: isolate; }
+[data-spotlight]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(320px circle at var(--mx, 50%) var(--my, 0%), color-mix(in oklab, var(--spot, var(--arc)) 16%, transparent), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+[data-spotlight]:hover::after { opacity: 1; }
+
+/* Section index numerals */
+.index-numeral {
+  font-family: var(--font-display);
+  -webkit-text-stroke: 1px color-mix(in oklab, var(--foreground) 18%, transparent);
+  color: transparent;
+  line-height: 0.8;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}

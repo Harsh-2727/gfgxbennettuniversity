@@ -5,7 +5,7 @@ import texture from "@/assets/tech-texture.jpg";
 
 export function About() {
   return (
-    <section id="briefing" className="relative overflow-hidden py-24 sm:py-32">
+    <section id="briefing" className="relative overflow-hidden py-20 sm:py-28">
       <img
         src={texture}
         alt=""

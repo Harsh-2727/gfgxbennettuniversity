@@ -11,7 +11,7 @@ export function Squads() {
   const [flipped, setFlipped] = useState<string | null>(null);
 
   return (
-    <section id="squads" className="relative py-24 sm:py-32">
+    <section id="squads" className="relative py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <SectionHeading
           kicker="Recruitment Files"

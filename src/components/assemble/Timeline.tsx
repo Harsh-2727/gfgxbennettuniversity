@@ -12,7 +12,7 @@ export function Timeline() {
   const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 28 });
 
   return (
-    <section id="timeline" className="relative py-24 sm:py-32">
+    <section id="timeline" className="relative py-20 sm:py-28">
       <div className="mx-auto max-w-5xl px-5 sm:px-8">
         <SectionHeading
           kicker="Energy Conduit · 48 Hours"
