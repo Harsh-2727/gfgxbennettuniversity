@@ -7,8 +7,8 @@ export const EVENT = {
   subheadline:
     "GeeksForGeeks Student Chapter × Bennett University presents the ultimate tech showdown.",
   // ISO date-time of the event start (used by the countdown).
-  startsAt: "2026-03-14T09:00:00+05:30",
-  dateLabel: "14–15 March 2026",
+  startsAt: "2026-11-14T09:00:00+05:30",
+  dateLabel: "14–15 November 2026",
   venue: "Bennett University, Greater Noida",
   registerUrl: "https://forms.gle/",
   slotsNote: "Limited slots — 500 recruits only",
