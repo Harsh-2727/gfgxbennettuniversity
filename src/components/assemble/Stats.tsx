@@ -53,9 +53,9 @@ export function Stats() {
             <Reveal key={s.label} delay={i * 0.08} className="text-center">
               <Counter
                 value={s.value}
-                prefix={s.prefix}
-                suffix={s.suffix}
-                compact={s.compact}
+                prefix={s.prefix ?? ""}
+                suffix={s.suffix ?? ""}
+                compact={s.compact ?? false}
               />
               <p className="hud-mono mt-3 text-[0.55rem] text-muted-foreground">{s.label}</p>
             </Reveal>
